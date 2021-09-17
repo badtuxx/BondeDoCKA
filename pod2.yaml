@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: giropops
+  namespace: strigus
+  labels:
+    role: myrole
+spec:
+  containers:
+    - name: web
+      image: nginx:1.18.0
+      ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP

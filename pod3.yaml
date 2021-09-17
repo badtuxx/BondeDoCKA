@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: giropops
+  name: giropops
+  namespace: strigus
+spec:
+  containers:
+  - image: nginx:1.18.0
+    name: giropops
+    ports:
+    - containerPort: 80
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

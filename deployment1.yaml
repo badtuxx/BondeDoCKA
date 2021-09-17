@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: girus
+  name: girus
+  namespace: strigus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: girus
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: girus
+    spec:
+      containers:
+      - image: nginx:1.18.0
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
