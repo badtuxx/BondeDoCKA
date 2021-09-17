@@ -54,7 +54,7 @@ kubectl apply -f deployment2.yaml
   1.18.0 e precisamos atualizar para versão 1.21.1 
 
 
-### Resposta 1
+### Resposta 3
 
 ```bash
 kubectl edit pod -n strigus giropops # lá mudamos a versão do Nginx
