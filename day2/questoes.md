@@ -9,8 +9,8 @@ Precisamos levantar algumas informações sobre o nosso cluster:
 
 Adicionar as informações colidas no arquivo /opt/cluster_info.txt 
 
-
-### Resposta 1
+<details>
+  <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
 
 - Quantos nodes são workers?
 ```bash
@@ -42,10 +42,13 @@ kubectl get node -o jsonpath="{range .items[*]}{.metadata.name} {.spec.podCIDR}"
 kubectl describe nodes seul-cool-05 | grep PodCIDR
 ```
 
-Qual é o nosso serviço de DNS para o nosso cluster?
+- Qual é o nosso serviço de DNS para o nosso cluster?
 ```bash
 kubectl get pods -n kube-system
 ```
+
+</details>
+
 
 ### Questão 2
 Precisamos criar um pod com as seguintes caracteristicas:
@@ -62,9 +65,12 @@ Precisamos criar um pod com as seguintes caracteristicas:
 
 - Precisamos ter um outro container rodando o busybox e executando o seguinte
   comando:
+```bash
       => command: ["sh", "-c", "tail -f /tmp/index.html"]
+```
 
-### Resposta 2
+<details>
+  <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
 
 Criamos o arquivo pod.yaml e nele adicionamos os tres containers
 
@@ -122,4 +128,6 @@ kubectl logs -f meu-pod container-2
 kubectl logs -f meu-pod container-3
 kubectl exec -ti meu-pod -c container-1 -- bash
 ```
+</details>
+
 
