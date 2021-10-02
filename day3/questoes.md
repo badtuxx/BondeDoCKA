@@ -3,7 +3,8 @@
 ### Questão 1
 Criar um pod estatico utilizando a imagem do nginx.
 
-### Resposta 1
+<details>
+  <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
 Para criar um pod estatico, voce precisa adicionar o manifesto de criação do pod desejado, dentro do diretório /etc/kubernetes/manifests, conforme abaixo: 
 
 ```bash
@@ -30,6 +31,7 @@ spec:
   restartPolicy: Always
 status: {}
 ```
+</details>
 
 ### Questão 2
 O nosso gerente está assustado, pois conversando com o gerente de uma outra
@@ -40,7 +42,8 @@ Ele quer que tenhamos a certeza de que nosso cluster não corre esse perigo,
 portanto, adicione no arquivo /tmp/meus-certificados.txt todos eles e suas
 datas de expiração.
 
-### Resposta 2
+<details>
+  <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
 Os certificados, por padrao, ficam no diretório /etc/kubernetes/pki. Para que
 você possa verificar a data de expiração, você pode utilizar o comando openssl,
 conforme abaixo:
@@ -63,14 +66,15 @@ Para facilitar a nossa vida, podemos utilizar o kubeadm certs, conforme abaixo:
 ```bash
 kubeadm certs check-expiration >> /tmp/meus-certificados.txt
 ```
+</details>
 
 ### Questão 3
 Pois bem, vimos que precisamos atualizar o nosso cluster imediatamente, sem
 trazer nenhum indisponibilidade para o ambiente. Como devemos proceder?
 
+<details>
+  <summary><b>Resposta 3</b> <em>(clique para ver a resposta)</em></summary>
 
-
-### Resposta 3
 Podemos utilizar o comando kubeadm certs para visualizar as datas corretas e
 tbm para realizar sua renovação. Conforme estamos fazendo abaixo:
 
@@ -82,5 +86,5 @@ Lembrando a importancia de realizar o procedimento em todos os nodes master.
 Lembre se restartar o apiserver, controller, scheduller e o etcd.
 Para isso, você pode utilizar o comando docker stop, de dentro do node que está
 sendo atualizado.
-
+</details>
 
