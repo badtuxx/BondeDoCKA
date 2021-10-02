@@ -7,24 +7,24 @@ Precisamos levantar algumas informações sobre o nosso cluster:
 - Qual o Pod Network (CNI) que estamos utilizando?
 - Qual o CIDR dos pods no segundo workers
 
-Adicionar as informações colidas no arquivo /opt/cluster_info.txt 
+Adicionar as informações colhidas no arquivo /opt/cluster_info.txt
 
 <details>
   <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
 
 - Quantos nodes são workers?
 ```bash
-k get nodes
+kubectl get nodes
 ```
 
 - Quantos nodes são masters?
 ```bash
-k get nodes
+kubectl get nodes
 ```
 
 - Qual o Pod Network (CNI) que estamos utilizando?
 ```bash
-k get pods -n kube-system
+kubectl get pods -n kube-system
 ```
 
 ```bash
@@ -35,16 +35,16 @@ ls -lha
 
 - Qual o CIDR dos pods no segundo workers
 ```bash
-k get node -o jsonpath="{range .items[*]}{.metadata.name} {.spec.podCIDR}"
+kubectl get node -o jsonpath="{range .items[*]}{.metadata.name} {.spec.podCIDR}"
 ```
 
 ```bash
-k describe nodes seul-cool-05 | grep PodCIDR
+kubectl describe nodes seul-cool-05 | grep PodCIDR
 ```
 
 - Qual é o nosso serviço de DNS para o nosso cluster?
 ```bash
-k get pods -n kube-system
+kubectl get pods -n kube-system
 ```
 
 </details>
@@ -117,16 +117,16 @@ spec:
 
 Criando o pod
 ```bash
-k create -f pod.yaml
+kubectl create -f pod.yaml
 ```
 
 Verificando os logs par ver tudo funcionando
 
 ```bash
-k logs -f meu-pod container-1
-k logs -f meu-pod container-2
-k logs -f meu-pod container-3
-k exec -ti meu-pod -c container-1 -- bash
+kubectl logs -f meu-pod container-1
+kubectl logs -f meu-pod container-2
+kubectl logs -f meu-pod container-3
+kubectl exec -ti meu-pod -c container-1 -- bash
 ```
 </details>
 

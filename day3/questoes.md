@@ -5,7 +5,6 @@ Criar um pod estatico utilizando a imagem do nginx.
 
 <details>
   <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
-
 Para criar um pod estatico, voce precisa adicionar o manifesto de criação do pod desejado, dentro do diretório /etc/kubernetes/manifests, conforme abaixo: 
 
 ```bash
@@ -45,7 +44,6 @@ datas de expiração.
 
 <details>
   <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
-
 Os certificados, por padrao, ficam no diretório /etc/kubernetes/pki. Para que
 você possa verificar a data de expiração, você pode utilizar o comando openssl,
 conforme abaixo:
@@ -76,7 +74,6 @@ trazer nenhum indisponibilidade para o ambiente. Como devemos proceder?
 
 <details>
   <summary><b>Resposta 3</b> <em>(clique para ver a resposta)</em></summary>
-
 
 Podemos utilizar o comando kubeadm certs para visualizar as datas corretas e
 tbm para realizar sua renovação. Conforme estamos fazendo abaixo:
