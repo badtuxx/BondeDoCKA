@@ -78,7 +78,7 @@ tbm para realizar sua renovação. Conforme estamos fazendo abaixo:
 kubeadm certs renew all
 ```
 
-Lembrando a importancia de realizar o procedimento em todos os nodes master.
+Lembrando a importância de realizar o procedimento em todos os nodes master.
 Lembre se restartar o apiserver, controller, scheduller e o etcd.
 Para isso, você pode utilizar o comando docker stop, de dentro do node que está
 sendo atualizado.
