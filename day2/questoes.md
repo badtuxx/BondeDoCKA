@@ -7,7 +7,7 @@ Precisamos levantar algumas informações sobre o nosso cluster:
 - Qual o Pod Network (CNI) que estamos utilizando?
 - Qual o CIDR dos pods no segundo workers
 
-Adicionar as informações colidas no arquivo /opt/cluster_info.txt 
+Adicionar as informações colhidas no arquivo /opt/cluster_info.txt
 
 <details>
   <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
