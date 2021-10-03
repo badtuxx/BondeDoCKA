@@ -1,7 +1,7 @@
 ## DAY3
 
 ### Questão 1
-Criar um pod estatico utilizando a imagem do nginx.
+Criar um pod estático utilizando a imagem do nginx.
 
 <details>
   <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
