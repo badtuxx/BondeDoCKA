@@ -45,6 +45,8 @@ Portanto, precisamos do seguinte:
 - Adicione todos os pods do cluster por ordem de criação, dentro do arquivo
   /tmp/pods.txt
 - Remova um pod do weave, verifique os eventos e os adicione no arquivo /tmp/eventos.txt
+- Liste todos os pods que estao em execução no seul-cool-5 e os adicione no
+  arquivo /tmp/pods-node-05.txt
 
 
 
@@ -53,4 +55,5 @@ Portanto, precisamos do seguinte:
 ```bash
 kubectl get pods --sort-by=.metadata.creationTimestamp -A -o name > /tmp/pods.txt
 kubectl get events --all-namespaces --sort-by=.metadata.creationTimestamp
+kubectl get pods --all-namespaces --field-selector spec.nodeName=seul-cool-05 -o name > /tmp/pods-node-05.txt
 ```
