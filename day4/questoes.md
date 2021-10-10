@@ -56,7 +56,7 @@ Portanto, precisamos do seguinte:
   
 ```bash
 kubectl get pods --sort-by=.metadata.creationTimestamp -A -o name > /tmp/pods.txt
-kubectl get events --all-namespaces --sort-by=.metadata.creationTimestamp
+kubectl get events --all-namespaces --sort-by=.metadata.creationTimestamp > /tmp/eventos.txt
 kubectl get pods --all-namespaces --field-selector spec.nodeName=seul-cool-05 -o name > /tmp/pods-node-05.txt
 ```
 </details>
