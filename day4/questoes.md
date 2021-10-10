@@ -5,7 +5,8 @@ Precisamos subir um container em um node master. Esse container tem que estar
 rodando a imagem do nginx, o nome do pod é pod-web e o container é
 container-web. Sua namespace será a catota.
 
-### Resposta 1
+<details>
+  <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
 
 ```yaml
 apiVersion: v1
@@ -37,7 +38,7 @@ status: {}
 kubectl create namespace catota
 kubectl create -f opa.yaml
 ```
-
+</details>
 
 ### Questão 2
 Precisamos de algumas informaçoes do nosso cluster e dos pods que lá estão.
@@ -50,10 +51,12 @@ Portanto, precisamos do seguinte:
 
 
 
-### Resposta 2
-
+<details>
+  <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
+  
 ```bash
 kubectl get pods --sort-by=.metadata.creationTimestamp -A -o name > /tmp/pods.txt
 kubectl get events --all-namespaces --sort-by=.metadata.creationTimestamp
 kubectl get pods --all-namespaces --field-selector spec.nodeName=seul-cool-05 -o name > /tmp/pods-node-05.txt
 ```
+</details>
