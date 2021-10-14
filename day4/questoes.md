@@ -3,7 +3,7 @@
 ### Questão 1
 Precisamos subir um container em um node master. Esse container tem que estar
 rodando a imagem do nginx, o nome do pod é pod-web e o container é
-container-web. Sua namespace será a catota.
+container-web. Sua namespace será a *catota*.
 
 <details>
   <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
@@ -41,12 +41,12 @@ kubectl create -f opa.yaml
 </details>
 
 ### Questão 2
-Precisamos de algumas informaçoes do nosso cluster e dos pods que lá estão.
+Precisamos de algumas informações do nosso cluster e dos pods que lá estão.
 Portanto, precisamos do seguinte:
-- Adicione todos os pods do cluster por ordem de criação, dentro do arquivo
+- Adicione todos os pods do cluster por *ordem de criação*, dentro do arquivo
   /tmp/pods.txt
-- Remova um pod do weave, verifique os eventos e os adicione no arquivo /tmp/eventos.txt
-- Liste todos os pods que estao em execução no seul-cool-5 e os adicione no
+- Remova um pod do weave, verifique *os eventos* e os adicione no arquivo /tmp/eventos.txt
+- Liste todos os pods que estão em execução no *seul-cool-5* e os adicione no
   arquivo /tmp/pods-node-05.txt
 
 
