@@ -23,7 +23,7 @@ ETCDCTL_API=3 etcdctl snapshot save snap_do_gerente.db --key /etc/kubernetes/pki
 
 ### Questão 2
 Muito bem, o gerente está feliz, mas não perfeitamente explendido em sua
-felicidade! A pergunta do gerente foi a seguinte, vc já fez o restore para
+felicidade! A pergunta do gerente foi a seguinte: Você já fez o restore para
 testar o nosso snapshot? EU QUERO TESTAR AGORA!
 
 <details>
