@@ -2,7 +2,7 @@
 
 ### Questão 1
 
-O nosso gerente observou no dashboard do Lens que um dos nossos nodes não está
+O nosso gerente observou no dashboard do [Lens](https://k8slens.dev/) que um dos nossos nodes não está
 bem. Temos algum problema com o nosso cluster e precisamos resolver agora. 
 
 <details>
@@ -29,9 +29,9 @@ journalctl -u kubelet
 
 ### Questão 2
 
-Temos um secret com o nome e senha de um usuario que nossa aplicaçao ira
+Temos um secret com o nome e senha de um usuário que nossa aplicação irá
 utilizar, precisamos colocar esse secret em um pod.
-Detalhe, esse secret deve se tornar um variavel de ambiente dentro do container
+Detalhe: Esse secret deve se tornar um variável de ambiente dentro do container.
 
 <details>
   <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
