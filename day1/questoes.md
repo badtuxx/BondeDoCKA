@@ -46,10 +46,10 @@ kubectl apply -f deployment2.yaml
 ```
 </details>
 
-### Questão 2
+### Questão 3
 Precisamos atualizar a versão do Nginx do Pod giropops. Ele está na versão 1.18.0 e precisamos atualizar para versão 1.21.1
 <details>
-  <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
+  <summary><b>Resposta 3</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
 kubectl edit pod -n strigus giropops # lá mudamos a versão do Nginx
