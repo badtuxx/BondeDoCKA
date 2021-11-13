@@ -30,8 +30,8 @@ journalctl -u kubelet
 ### Questão 2
 
 Temos um secret com o nome e senha de um usuário que nossa aplicação irá
-utilizar, precisamos colocar esse secret em um pod.
-Detalhe: Esse secret deve se tornar um variável de ambiente dentro do container.
+utilizar, precisamos colocar esse secret em um pod.\
+Detalhe: Esse secret deve se tornar uma variável de ambiente dentro do container.
 
 <details>
   <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
