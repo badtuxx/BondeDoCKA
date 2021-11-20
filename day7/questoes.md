@@ -1,7 +1,7 @@
 ## DAY7
 
 ### Questão 1
-Precisamos subir um pod, facil não?
+Precisamos subir um pod, fácil não?
 Porém esse pod somente poderá ficar disponível quando um determinado service
 estiver no ar.
 
