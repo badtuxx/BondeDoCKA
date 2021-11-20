@@ -1,7 +1,7 @@
 # BondeDoCKA
 
-Esse repositório é mantido por todos os membros do #BondeDoCKA!
-Esse material é para prepara-lo para o exame do CKA. 
+Esse repositório é mantido por todos os membros do **#BondeDoCKA**!
+Esse material é para prepará-lo para o exame do [CKA](https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/).
 
 As aulas acontecem sempre
 ao vivo, às sextas, lá no [Canal da LINUXtips na Twitch](https://twitch.tv/LINUXtips) à partir das 19h!
