@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: giropops
+  name: giropops
+spec:
+  containers:
+  - image: nginx
+    name: giropops
+    ports:
+    - containerPort: 80
+    resources: {}
+    livenessProbe:
+      exec:
+        command:
+        - 'true'
+    readinessProbe:
+      exec:
+        command:
+        - sh
+        - -c
+        - 'curl http://my-nginx:80'      
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
