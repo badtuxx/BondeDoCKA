@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: giropops
+  name: giropops
+  namespace: strigus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: giropops
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: giropops
+    spec:
+      containers:
+      - image: nginx
+        name: strigus-01
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
