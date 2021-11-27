@@ -79,7 +79,7 @@ namespace strigus.
 
 
 <details>
-  <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
+  <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
 
 
 ```bash
