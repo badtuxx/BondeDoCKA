@@ -64,15 +64,15 @@ kubectl config use-context CONTEXTO_DESEJADO
 ```
 
 Vale lembrar que os contextos estão definidos no seu arquivo config, na maioria
-dos casos no $HOME/.kube/config.
+dos casos no *${HOME}/.kube/config*.
 
 
 </details>
 
 
 ### Questão 02
-Precisamos criar um pod com o Nginx rodando no cluster lt-01, já no cluster
-giropops-01, nós precisamos ter um deployment do Nginx e um service apontando
+Precisamos criar um pod com o **Nginx** rodando no cluster **lt-01**, já no cluster
+**giropops-01**, nós precisamos ter um deployment do **Nginx** e um service apontando
 para esse deployment.
 Os containers deverão ter o mesmo nome em todos os cluster e estarem rodando no
 namespace strigus.
@@ -88,7 +88,7 @@ kubectl config use-context kind-lt-01
 ```
 
 ```bash
-kubectl run --image nginx strigus-01 --port 80 --namespace strigus --dry-run=client -o yaml  > meu_pod.yaml
+kubectl run --image nginx strigus-01 --port 80 --namespace strigus --dry-run=client -o yaml > meu_pod.yaml
 ```
 
 ```yaml
