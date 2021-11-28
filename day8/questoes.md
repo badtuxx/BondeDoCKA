@@ -164,3 +164,17 @@ kubectl expose deployment --namespace strigus giropops
 ```
 
 </details>
+
+Note que temos containers rodando.
+
+```bash
+docker container ls --filter "label=io.x-k8s.kind.role"
+```
+
+Vamos deletar os 2 clusters criados anteriormente.
+
+
+```bash
+kind delete cluster --name lt-01
+kind delete cluster --name giropops-01
+```
