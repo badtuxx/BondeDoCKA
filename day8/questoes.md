@@ -28,7 +28,7 @@ nodes:
 ```
 
 ```bash
-kind create cluster --config kind-cluster-1.yaml
+kind create cluster --name lt-01 --config kind-cluster-1.yaml
 ```
 
 Criando o nosso segundo cluster:
@@ -46,7 +46,7 @@ nodes:
 ```
 
 ```bash
-kind create cluster --config kind-cluster-2.yaml
+kind create cluster --name giropops-01 --config kind-cluster-2.yaml
 ```
 
 Agora que os nossos clusters já estão criados, bora brincar com os contextos.
