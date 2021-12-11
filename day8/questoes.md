@@ -28,7 +28,7 @@ nodes:
 ```
 
 ```bash
-kind create cluster --config kind-cluster-1.yaml
+kind create cluster --name lt-01 --config kind-cluster-1.yaml
 ```
 
 Criando o nosso segundo cluster:
@@ -46,7 +46,7 @@ nodes:
 ```
 
 ```bash
-kind create cluster --config kind-cluster-2.yaml
+kind create cluster --name giropops-01 --config kind-cluster-2.yaml
 ```
 
 Agora que os nossos clusters já estão criados, bora brincar com os contextos.
@@ -64,15 +64,15 @@ kubectl config use-context CONTEXTO_DESEJADO
 ```
 
 Vale lembrar que os contextos estão definidos no seu arquivo config, na maioria
-dos casos no $HOME/.kube/config.
+dos casos no *${HOME}/.kube/config*.
 
 
 </details>
 
 
 ### Questão 02
-Precisamos criar um pod com o Nginx rodando no cluster lt-01, já no cluster
-giropops-01, nós precisamos ter um deployment do Nginx e um service apontando
+Precisamos criar um pod com o **Nginx** rodando no cluster **lt-01**, já no cluster
+**giropops-01**, nós precisamos ter um deployment do **Nginx** e um service apontando
 para esse deployment.
 Os containers deverão ter o mesmo nome em todos os cluster e estarem rodando no
 namespace strigus.
@@ -88,7 +88,7 @@ kubectl config use-context kind-lt-01
 ```
 
 ```bash
-kubectl run --image nginx strigus-01 --port 80 --namespace strigus --dry-run=client -o yaml  > meu_pod.yaml
+kubectl run --image nginx strigus-01 --port 80 --namespace strigus --dry-run=client -o yaml > meu_pod.yaml
 ```
 
 ```yaml
@@ -164,3 +164,17 @@ kubectl expose deployment --namespace strigus giropops
 ```
 
 </details>
+
+Note que temos containers rodando.
+
+```bash
+docker container ls --filter "label=io.x-k8s.kind.role"
+```
+
+Vamos deletar os 2 clusters criados anteriormente.
+
+
+```bash
+kind delete cluster --name lt-01
+kind delete cluster --name giropops-01
+```
