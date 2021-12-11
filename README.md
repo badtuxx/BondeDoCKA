@@ -14,3 +14,5 @@ ao vivo, às sextas, lá no [Canal da LINUXtips na Twitch](https://twitch.tv/LIN
 - [Questões do Day6](day6/questoes.md)
 - [Questões do Day7](day7/questoes.md)
 - [Questões do Day8](day8/questoes.md)
+- [Questões do Day9](day9/questoes.md)
+
