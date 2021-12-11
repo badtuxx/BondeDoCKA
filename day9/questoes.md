@@ -77,24 +77,22 @@ kubectl exec -ti meu-pod -c container-1 -- bash
 
 Criamos o pod do Nginx, parabéns! 
 
-- TASK-1
-Portanto, agora precisamos mudar a versão do Nginx para a versão 1.18.0, pois o
+- TASK-1: Portanto, agora precisamos mudar a versão do Nginx para a versão 1.18.0, pois o
 nosso gerente viu um artigo no Medium e disse que agora temos que usar essa
 versão e ponto.
 
 <details>
-  <summary><b>Resposta 3 - TASK-1</b> <em>(clique para ver a resposta)</em></summary>
+  <summary><b>Resposta TASK-1</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
 kubectl edit pods -n web-1 web
 ```
 </details>
 
-- TASK-2
-Precisamos criar um deployment no lugar do nosso pod do Nginx
+- TASK-2: Precisamos criar um deployment no lugar do nosso pod do Nginx
 
 <details>
-  <summary><b>Resposta 3 - TASK-2</b> <em>(clique para ver a resposta)</em></summary>
+  <summary><b>Resposta TASK-2</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
 kubectl create deployment web --image nginx:1.20.2 --dry-run=client -o yaml > deployment.yaml
@@ -129,22 +127,20 @@ status: {}
 ```
 </details>
 
-- TASK-3
-Precisamos utilizar o Nginx com a imagem do Alpine, pq o gerente leu um outro artigo no Medium.
+- TASK-3: Precisamos utilizar o Nginx com a imagem do Alpine, pq o gerente leu um outro artigo no Medium.
 
 <details>
-  <summary><b>Resposta 3 - TASK-3</b> <em>(clique para ver a resposta)</em></summary>
+  <summary><b>Resposta TASK-3</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
 kubectl edit deployment -n web-1 web
 ```
 </details>
 
-- TASK-4
-Precisamos realizar o rollback do nosso deployment web
+- TASK-4: Precisamos realizar o rollback do nosso deployment web
 
 <details>
-  <summary><b>Resposta 3 - TASK-4</b> <em>(clique para ver a resposta)</em></summary>
+  <summary><b>Resposta TASK-4</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
 kubectl rollout history deployment -n web-1 web
