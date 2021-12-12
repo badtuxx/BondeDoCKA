@@ -13,7 +13,7 @@ Para gerar a lista de todas as namespaces disponíveis e já adiciona-lá no
 arquivo indicado.
 
 ```bash
-k get ns --no-headers -o custom-columns=":metadata.name" > /tmp/giropops-k8s.txt
+kubectl get ns --no-headers -o custom-columns=":metadata.name" > /tmp/giropops-k8s.txt
 ```
 </details>
 
@@ -32,7 +32,7 @@ Para criar o nosso yaml que dará origem ao pod solicitado, precisamos executar
 o comando abaixo:
 
 ```bash
-k run web --image nginx:1.21.4 -n web-1 --dry-run=client -o yaml > pod.yaml
+kubectl run web --image nginx:1.21.4 -n web-1 --dry-run=client -o yaml > pod.yaml
 ```
 
 Agora, apenas edite o arquivo e adicione o nome do container conforme
@@ -59,7 +59,7 @@ status: {}
 Para criar o script que mostrará o status do pod em questão, faça:
 
 ```bash
-echo 'k get pods -n web-1 --no-headers -o custom-columns=":metadata.name, :status.phase"' > /tmp/script-do-gerente-toskao.sh
+echo 'kubectl get pods -n web-1 --no-headers -o custom-columns=":metadata.name, :status.phase"' > /tmp/script-do-gerente-toskao.sh
 ```
 
 Verificando os logs par ver tudo funcionando
@@ -76,23 +76,26 @@ kubectl exec -ti meu-pod -c container-1 -- bash
 ### Questão 3
 
 Criamos o pod do Nginx, parabéns! 
-TASK-1
-Portanto, agora precisamos mudar a versão do Nginx para a versão 1.18.0, pois o
+
+- TASK-1: Portanto, agora precisamos mudar a versão do Nginx para a versão 1.18.0, pois o
 nosso gerente viu um artigo no Medium e disse que agora temos que usar essa
 versão e ponto.
 
 <details>
-  <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
+  <summary><b>Resposta TASK-1</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
-k edit pods -n web-1 web
+kubectl edit pods -n web-1 web
 ```
+</details>
 
-TASK-2
-Precisamos criar um deployment no lugar do nosso pod do Nginx
+- TASK-2: Precisamos criar um deployment no lugar do nosso pod do Nginx
+
+<details>
+  <summary><b>Resposta TASK-2</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
-k create deployment web --image nginx:1.20.2 --dry-run=client -o yaml > deployment.yaml
+kubectl create deployment web --image nginx:1.20.2 --dry-run=client -o yaml > deployment.yaml
 ```
 
 ```yaml
@@ -122,22 +125,27 @@ spec:
         resources: {}
 status: {}
 ```
+</details>
 
-TASK-3
-Precisamos utilizar o Nginx com a imagem do Alpine, pq o gerente leu um outro
-artigo no Medium.
+- TASK-3: Precisamos utilizar o Nginx com a imagem do Alpine, pq o gerente leu um outro artigo no Medium.
+
+<details>
+  <summary><b>Resposta TASK-3</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
-k edit deployment -n web-1 web
+kubectl edit deployment -n web-1 web
 ```
+</details>
 
-TASK-4
-Precisamos realizar o rollback do nosso deployment web
+- TASK-4: Precisamos realizar o rollback do nosso deployment web
+
+<details>
+  <summary><b>Resposta TASK-4</b> <em>(clique para ver a resposta)</em></summary>
 
 ```bash
-k rollout history deployment -n web-1 web
-k rollout history deployment -n web-1 web --revision=1
-k rollout history deployment -n web-1 web --revision=2
-k rollout undo deployment -n web-1 web --to-revision=1
+kubectl rollout history deployment -n web-1 web
+kubectl rollout history deployment -n web-1 web --revision=1
+kubectl rollout history deployment -n web-1 web --revision=2
+kubectl rollout undo deployment -n web-1 web --to-revision=1
 ```
 </details>
