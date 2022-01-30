@@ -1,13 +1,18 @@
 ## DAY1
 
 ### Questão 1
-Criar um pod utilizando a imagem do Nginx 1.18.0, com o nome de giropops no namespace strigus.
+Criar um pod utilizando a imagem do Nginx 1.18.0, com o nome de **giropops** no namespace **strigus**.
 <details> 
   <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
 
 Nesse caso, temos duas formas.
-A primeira, utilizando somente a linha de comando:
 
+Antes é necessário criar o namespace strigus
+```bash
+kubectl create namespace strigus
+```
+
+A primeira forma de criar o pod é utilizando somente a linha de comando:
 ```bash
 kubectl run giropops --image nginx:1.18.0 --port 80 --namespace strigus
 ```
@@ -25,7 +30,10 @@ kubectl create -f pod.yaml
 </details>
 
 ### Questão 2
-Aumentar a quantidade de réplicas do deployment girus, que está utilizando a imagem do nginx 1.18.0, para 3 replicas. O deployment está no namespace strigus.
+Aumentar a quantidade de réplicas do deployment girus, que está utilizando a imagem do nginx 1.18.0, para 3 replicas. O deployment inicial está no namespace **strigus** e pode ser criado com o seguinte comando:
+```bash
+kubectl create -f https://raw.githubusercontent.com/badtuxx/BondeDoCKA/main/day1/deployment1.yaml
+```
 
 <details>
   <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
@@ -47,7 +55,7 @@ kubectl apply -f deployment2.yaml
 </details>
 
 ### Questão 3
-Precisamos atualizar a versão do Nginx do Pod giropops. Ele está na versão 1.18.0 e precisamos atualizar para versão 1.21.1
+Precisamos atualizar a versão do Nginx do Pod **giropops**. Ele está na versão 1.18.0 e precisamos atualizar para versão 1.21.1
 <details>
   <summary><b>Resposta 3</b> <em>(clique para ver a resposta)</em></summary>
 
