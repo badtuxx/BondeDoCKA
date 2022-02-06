@@ -16,7 +16,7 @@ sudo cat etcd.yaml
 sudo grep etcd kube-apiserver.yaml
 
 # Com essas informaçoes, já podemos criar o nosso snapshot
-sudo apt install etcd-client
+sudo apt install -y etcd-client
 sudo ETCDCTL_API=3 etcdctl snapshot save $HOME/snap_do_gerente.db --key /etc/kubernetes/pki/apiserver-etcd-client.key --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/apiserver-etcd-client.crt
 
 ```
