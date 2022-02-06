@@ -45,6 +45,14 @@ kubectl create secret generic credentials --from-literal user=jeferson \
 kubectl create -f meu_secret.yaml
 ```
 
+Visualizando a secret:
+  
+```bash
+kubectl get secrets -n default
+kubectl get secrets credentials -n default
+kubectl describe secrets credentials -n default
+```
+
 Criando o arquivo do pod que fará uso da secret para criar variáveis de ambiente:
 
 ```bash
