@@ -9,7 +9,9 @@ Para criar um pod estatico, voce precisa adicionar o manifesto de criação do p
 
 ```bash
 cd /etc/kubernetes/manifests
-k run giropops --image nginx -o yaml --dry-run=client > meu-pod-estatico.yaml
+k run giropops --image nginx -o yaml --dry-run=client | sudo tee meu-pod-estatico.yaml
+k get pods -A | grep giropops
+docker ps -a |grep giropops
 ```
 
 O arquivo terá o conteúdo abaixo:
@@ -31,6 +33,11 @@ spec:
   restartPolicy: Always
 status: {}
 ```
+
+Referências:
+* https://blog.vikki.in/creating-static-pod-in-kubernetes/
+* https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/
+
 </details>
 
 ### Questão 2
