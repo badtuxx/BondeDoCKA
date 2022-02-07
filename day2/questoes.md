@@ -61,7 +61,7 @@ kubeadm config print init-defaults | grep Subnet
   
 ps -aux | grep kube-apiserver | grep service-cluster-ip-range
 
-cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep service-cluster-ip-range
+sudo cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep service-cluster-ip-range
 ```
 
 Referências:
