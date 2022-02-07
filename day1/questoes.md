@@ -22,7 +22,7 @@ poder analisar com mais tranquilidade o que você está criando. Mas é a minha
 opinião apenas. :)
 
 ```bash
-kubectl run giropops --image nginx:1.18.0 --port 80 --namespace strigus
+kubectl run giropops --image nginx:1.18.0 --port 80 --namespace strigus \
 --dry-run=client -o yaml > pod.yaml
 
 kubectl create -f pod.yaml
