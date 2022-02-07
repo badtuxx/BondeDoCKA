@@ -38,7 +38,7 @@ kubectl create -f https://raw.githubusercontent.com/badtuxx/BondeDoCKA/main/day1
 Uma forma de criar o deploy é utilizando este comando:
 
 ```bash
-kubectl create deploy girus --image nginx:1.18.0 --port 80 --namespace strigus --dry-run=client -o yaml > deploy.yaml
+kubectl create deploy girus --image nginx:1.18.0 --port 80 --namespace strigus --dry-run=client -o yaml > deployment1.yaml
 ```
 
 <details>
