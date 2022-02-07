@@ -35,6 +35,12 @@ Aumentar a quantidade de réplicas do deployment girus, que está utilizando a i
 kubectl create -f https://raw.githubusercontent.com/badtuxx/BondeDoCKA/main/day1/deployment1.yaml
 ```
 
+Uma forma de criar o deploy é utilizando este comando:
+
+```bash
+kubectl create deploy girus --image nginx:1.18.0 --port 80 --namespace strigus --dry-run=client -o yaml > deploy.yaml
+```
+
 <details>
   <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
 
