@@ -64,6 +64,14 @@ ps -aux | grep kube-apiserver | grep service-cluster-ip-range
 sudo cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep service-cluster-ip-range
 ```
 
+Outra forma de listar o CIDR usado pelo pods é olhando o log do CNI que está sendo utilizado.
+Os comandos a seguir funcionam se você estiver utilizando o weave-net.
+  
+```bash
+kubectl get pods -n kube-system
+kubectl logs pod/POD_NAME_WEAVE -c weave -n kube-system | grep address
+```
+
 Referências:
 * https://devops.stackexchange.com/questions/5898/how-to-get-kubernetes-pod-network-cidr 
 
