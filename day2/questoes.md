@@ -23,30 +23,68 @@ kubectl get nodes
 ```
 
 - Qual o Pod Network (CNI) que estamos utilizando?
+Liste os pods do namespace kube-system e tente inferir a partir do resultado.
 ```bash
 kubectl get pods -n kube-system
 ```
 
+Uma outra forma é executando os seguintes comandos:
 ```bash
-ssh NODE
-cd /etc/cni
-ls -lha
+ssh NODE-WORKER
+ls -lRha /etc/cni
 ```
 
+Neste caso está sendo usado o ``weave-net``. Comando para visualizar as configurações:
+```bash
+cat /etc/cni/net.d/10-weave.conflist | more
+```
+  
+Referências:
+* https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
+* https://kubernetes.io/docs/concepts/cluster-administration/networking/
+* https://www.juniper.net/documentation/en_US/contrail19/topics/task/verification/verifying-cni-k8s.html
+
 - Qual o CIDR dos pods no segundo workers
+Uma forma é executar o seguinte comando:
 ```bash
 kubectl get node -o jsonpath="{range .items[*]}{.metadata.name} {.spec.podCIDR}"
 ```
 
+Outra forma é obter a informação a partir do describe dos nodes
 ```bash
-kubectl describe nodes seul-cool-05 | grep PodCIDR
+kubectl describe nodes NODE_NAME | grep PodCIDR
 ```
 
+Se estiver usando kubeadm, pode executar qualquer um dos seguintes comandos no node **master**:
+```bash
+kubeadm config print init-defaults | grep Subnet
+  
+ps -aux | grep kube-apiserver | grep service-cluster-ip-range
+
+sudo cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep service-cluster-ip-range
+```
+
+Outra forma de listar o CIDR usado pelo pods é olhando o log do CNI que está sendo utilizado.
+Os comandos a seguir funcionam se você estiver utilizando o weave-net.
+  
+```bash
+kubectl get pods -n kube-system
+kubectl logs pod/POD_NAME_WEAVE -c weave -n kube-system | grep address
+```
+
+Referências:
+* https://devops.stackexchange.com/questions/5898/how-to-get-kubernetes-pod-network-cidr 
+
 - Qual é o nosso serviço de DNS para o nosso cluster?
+Liste os pods do namespace kube-system e tente inferir a partir do resultado.
 ```bash
 kubectl get pods -n kube-system
 ```
 
+Referências:
+* https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
+* https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
+  
 </details>
 
 
@@ -129,5 +167,3 @@ kubectl logs -f meu-pod container-3
 kubectl exec -ti meu-pod -c container-1 -- bash
 ```
 </details>
-
-

@@ -16,8 +16,8 @@ docker ps
 systemctl status kubelet
 journalctl -u kubelet
 whereis kubelet
-vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf # ARRUMAR O PATH DO
-# systemctl edit --full kubelet # ainda podemos usar esse comando ao inves de
+sudo vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf # ARRUMAR O PATH DO
+# sudo systemctl edit --full kubelet # ainda podemos usar esse comando ao inves de
 # alterar o arquivo
 BINARIO DO KUBELET
 systemctl daemon-reload
@@ -35,16 +35,31 @@ Detalhe: Esse secret deve se tornar uma variável de ambiente dentro do containe
 
 <details>
   <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
+
+Criando o arquivo de secrets e, em seguida, criando a secret:
   
 ```bash
-kubectl create secret generic credentials --from-literal user=jeferson
+kubectl create secret generic credentials --from-literal user=jeferson \
 --from-literal password=giropops --dry-run=client -o yaml > meu_secret.yaml
+
 kubectl create -f meu_secret.yaml
 ```
+
+Visualizando a secret:
+  
+```bash
+kubectl get secrets -n default
+kubectl get secrets credentials -n default
+kubectl describe secrets credentials -n default
+```
+
+Criando o arquivo do pod que fará uso da secret para criar variáveis de ambiente:
 
 ```bash
 kubectl run giropops --image nginx --dry-run=client -o yaml > pod_com_secret.yaml       
 ```
+
+Conteúdo final do arquivo do pod:
 
 ```yaml
 apiVersion: v1
@@ -81,7 +96,16 @@ spec:
       secretName: credentials
 ```
 
+Criando o pod:
+
 ```bash
 kubectl create -f pod_com_secret.yaml
 ```
+
+Visualizando as variáveis de ambiente do pod:
+
+```bash
+kubectl exec -it giropops -n default -- env
+```
+  
 </details>

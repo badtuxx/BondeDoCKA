@@ -12,11 +12,12 @@ esse snapshot imediatamente!
 ```bash
 ssh node-master # Um dos nodes onde o ETCD está em execução.
 cd /etc/kubernetes/manifests
-cat etcd.yaml
-grep etcd kube-apiserver.yaml
+sudo cat etcd.yaml
+sudo grep etcd kube-apiserver.yaml
 
 # Com essas informaçoes, já podemos criar o nosso snapshot
-ETCDCTL_API=3 etcdctl snapshot save snap_do_gerente.db --key /etc/kubernetes/pki/apiserver-etcd-client.key --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/apiserver-etcd-client.crt
+sudo apt install -y etcd-client
+sudo ETCDCTL_API=3 etcdctl snapshot save $HOME/snap_do_gerente.db --key /etc/kubernetes/pki/apiserver-etcd-client.key --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/apiserver-etcd-client.crt
 
 ```
 </details>
@@ -30,6 +31,7 @@ testar o nosso snapshot? EU QUERO TESTAR AGORA!
   <summary><b>Resposta 2</b> <em>(clique para ver a resposta)</em></summary>
   
 ```bash
-ETCDCTL_API=3 etcdctl snapshot restore snap_do_gerente.db --data-dir /tmp/etcd-test
+ETCDCTL_API=3 etcdctl snapshot restore $HOME/snap_do_gerente.db --data-dir /tmp/etcd-test
+ls -lR /tmp/etcd-test
 ```
 </details>
