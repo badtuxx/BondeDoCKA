@@ -3,15 +3,15 @@
 ### Questão 1
 Hoje o nosso gerente pediu para que fiquemos confortáveis com o gerenciamento
 de contextos do nossos clusters.
-Ele está com medo de que executemos algo em ulgum cluster errado, e assim
+Ele está com medo que executemos algo em algum cluster errado, e assim
 deixando o nosso dia muito mais chatiante!
 
 <details>
   <summary><b>Resposta 1</b> <em>(clique para ver a resposta)</em></summary>
 
 Criamos dois clusters, para que pudessemos brincar com os contextos. Para criar
-os cluster, nós utilizamos o Kind, e para criar o cluster, nós estamos
-utilizando um arquivo template, conforme abaixo:
+os clusters, nós utilizamos o Kind, e para criar os clusters, nós estamos
+utilizando arquivos templates, conforme abaixo:
 
 
 ```bash
